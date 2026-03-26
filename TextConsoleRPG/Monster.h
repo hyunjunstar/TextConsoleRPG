@@ -7,13 +7,18 @@
 using namespace std;
 
 class Monster {
-public:
+protected:
     string name;
-    int level;
     int hp;
     int atk;
 
-    Monster(string mName, int mLevel, int mHp, int mAtk);
+public:
+    Monster(string mName, int mHp, int mAtk);
+    virtual ~Monster();
+
+    virtual int attack() = 0;
+    virtual int useSkill() = 0;
+
     void takeDamage(int damage);
     void showStatus();
     bool isDead();
