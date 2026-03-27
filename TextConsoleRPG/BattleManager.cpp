@@ -4,15 +4,15 @@
 
 // void BattleManager::processTurn(Player& player, Monster& monster)
 // {
-	// 1. 플레이어 공격 페이즈
+	// 1. Player Attack Phase
 
-	// 일단 기초 공격력 결정
+	// ** base attack power
 	// int totalAtk = player.baseAtk + player.bonusAtk;
 
-	// 데미지 변동성 적용
+	// ** apply damage variance
 	// int varianceLimit = totalAtk / VARIANCE_DIVIDER;
 
-	// 랜덤하게 데미지가 추가될지 감소될지 결정
+	// decide +- damage
 	// int variance = (std::rand() % (varianceLimit * 2 + 1)) - varianceLimit;
 	// int finalDamage = totalAtk + variance;
 
@@ -21,16 +21,34 @@
 	// 	finalDamage = 1;
 	// }
 
-	// 크리티컬 계산
+	// critical calculation
 	// int critRoll = (std::rand() % CRIT_MAX_CHANCE) + 1; // 1 ~ 100
 	// if (critRoll <= player.critChance) 
 	// {
 	// 	finalDamage = static_cast<int>(finalDamage * CRIT_DAMAGE_MULTIPLIER);
 	// }
 
-	// 유물 배율 적용
+	// apply relic
 	// finalDamage = static_cast<int>(finalDamage * player.damageMultiplier);
 
-	// 몬스터에게 데미지 적용
+	// apply damage to monster
 	// monster.takeDamage(finalDamage);
+	// 
+	// 2. check monster dead
+
+	// if (monster.isDead())
+	// {
+	//  	return;  // if monster dead turn end
+	// }
+
+	// 3. mosnter counterattack phase
+
+	// int monsterDamage = monster.useSkill();  // skill attempt
+
+	// if (monsterDamage == -1)                 // if skill failed
+	// {
+		// monsterDamage = monster.attack();    // replace to base attack
+	// }
+
+	// player.takeDamage(monsterDamage);
 // }
