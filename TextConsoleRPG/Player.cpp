@@ -3,22 +3,20 @@
 #include "Player.h"
 #include <cstdlib>
 #include <iostream>
-#include <ctime>
 
-//ÄÉ¸¯ÅÍ »ı¼º
-Player CreatePlayer() //Player class¿¡¼­ ÄÉ¸¯ÅÍ¸¦ »ı¼ºÇÏ´Â ÇÔ¼ö
+//Ä³¸¯ÅÍ »ı¼º
+Player CreatePlayer() //Player class¿¡¼­ Ä³¸¯ÅÍ¸¦ »ı¼ºÇÏ´Â ÇÔ¼ö
 {
-    Player p; //Player class·Î p ¶ó´Â ÄÉ¸¯ÅÍ¸¦ ¸¸µê
+    Player p; //Player class·Î p ¶ó´Â Ä³¸¯ÅÍ¸¦ ¸¸µê
 
-    std::cout << "´ç½ÅÀº ´©±¸½ÃÁÒ?" << std::endl;
+    std::cout << "Enter your name, adventurer: " << std::endl;
     std::cin >> p.pname;
-    std::cout << "À§´ëÇÑ ¸ğÇè°¡ " << p.pname << "ÀÇ ¿©Á¤ÀÌ ½ÃÀÛµÇ¾ú´Ù" << std::endl;
+    std::cout << "The journey of the great adventurer [" << p.pname << "] begins!\n" << std::endl;
 
     p.HP = 100;
     p.BaseAtk = std::rand() % 6 + 10;
     //¸¦ »ç¿ëÇÏ·Á´Âµ¥ ¾ÈµÇ¼­ ÀÏ´Ü 10À¸·Î °íÁ¤ÇÔ //ÇØ°áÇÔ
     //±âº»°ø°İ·ÂÀº 10~15 ¹üÀ§¾È¿¡¼­ ·£´ıÀ¸·Î ¼³Á¤ÀÌ¶ó´Â ¶æ
-    p.bonusAtk = 0;
     p.CritChance = 0;
     p.DamageMultiplier = 1.0f;
 
@@ -30,29 +28,32 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Ş´Â Çàµ¿À» Á¤ÀÇÇ
 {
     HP -= damage;
 
-    if (HP < 0) HP = 0;//HP°¡ 0º¸´Ù ÀÛÀ» °æ¿ì 0À¸·Î º¸Á¤
+    if (HP < 0)
+    {
+        HP = 0;
+    } //HP°¡ 0º¸´Ù ÀÛÀ» °æ¿ì 0À¸·Î º¸Á¤
 
     if (HP == 0) //HP°¡ 0ÀÏ¶§ »ç¸Á
     {
-        std::cout << pname << "(ÀÌ)°¡ »ç¸ÁÇß½À´Ï´Ù...\n ±×·¸°Ô ¼¼»óÀº ¸ê¸ÁÇß´Ù...\n";
+        std::cout << pname << "has died...\nAnd so, the world ends...\n";
 
         return;
     }
 
-    std::cout << pname << "(ÀÌ)°¡ " << damage << "ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú½À´Ï´Ù.(³²Àº HP : " << HP << ")" << std::endl;
+    std::cout << pname << " took " << damage << " damage. (Current HP: " << HP << ")" << std::endl;
 
 }
 
 
 // ³» »óÅÂ º¸±â
-void Player::ShowStatus()//Player class¿¡ ¼ÓÇÑ ³» »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+void Player::ShowStatus() //Player class¿¡ ¼ÓÇÑ ³» »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
 {
     std::cout << "\n=================================\n";
-    std::cout << "[" << pname << "ÀÇ »óÅÂ]\n";
+    std::cout << "       [" << pname << "'s Status]      \n";
     std::cout << "===================================\n";
-    std::cout << "HP:" << HP << "\n";
-    std::cout << "°ø°İ·Â:" << (BaseAtk + bonusAtk) << "\n";
-    std::cout << "[À¯¹° È¿°ú] Å©¸®Æ¼ÄÃ È®·ü: " << CritChance << "%\n";
-    std::cout << "µ¥¹ÌÁö ¹èÀ² : x" << DamageMultiplier << "\n";
+    std::cout << "HP: " << HP << "\n";
+    std::cout << "ATK: " << BaseAtk << "\n";
+    std::cout << " [Artifact] Crit Chance: " << CritChance << "%\n";
+    std::cout << "[Artifact] DMG Multiplier: x" << DamageMultiplier << "\n";
     std::cout << "===================================\n" << std::endl;
 }

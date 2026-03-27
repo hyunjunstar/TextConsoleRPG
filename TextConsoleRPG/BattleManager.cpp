@@ -1,54 +1,54 @@
+// BattleManager.cpp
+
 #include "BattleManager.h"
 #include <iostream>
 
-
-// void BattleManager::processTurn(Player& player, Monster& monster)
-// {
+void BattleManager::processTurn(Player& player, Monster& monster)
+{
 	// 1. Player Attack Phase
 
 	// ** base attack power
-	// int totalAtk = player.baseAtk + player.bonusAtk;
+	int totalAtk = player.BaseAtk;
 
 	// ** apply damage variance
-	// int varianceLimit = totalAtk / VARIANCE_DIVIDER;
+	int varianceLimit = totalAtk / VARIANCE_DIVIDER;
 
 	// decide +- damage
-	// int variance = (std::rand() % (varianceLimit * 2 + 1)) - varianceLimit;
-	// int finalDamage = totalAtk + variance;
+	int variance = (std::rand() % (varianceLimit * 2 + 1)) - varianceLimit;
+	int finalDamage = totalAtk + variance;
 
-	// if (finalDamage < 1) 
-	// {
-	// 	finalDamage = 1;
-	// }
+	if (finalDamage < 1) 
+	{
+	finalDamage = 1;
+	}
 
 	// critical calculation
-	// int critRoll = (std::rand() % CRIT_MAX_CHANCE) + 1; // 1 ~ 100
-	// if (critRoll <= player.critChance) 
-	// {
-	// 	finalDamage = static_cast<int>(finalDamage * CRIT_DAMAGE_MULTIPLIER);
-	// }
+	int critRoll = (std::rand() % CRIT_MAX_CHANCE) + 1; // 1 ~ 100
+	if (critRoll <= player.CritChance) 
+	{
+		finalDamage = static_cast<int>(finalDamage * CRIT_DAMAGE_MULTIPLIER);
+	}
 
 	// apply relic
-	// finalDamage = static_cast<int>(finalDamage * player.damageMultiplier);
+	finalDamage = static_cast<int>(finalDamage * player.DamageMultiplier);
 
-	// apply damage to monster
-	// monster.takeDamage(finalDamage);
-	// 
+	//apply damage to monster
+	monster.takeDamage(finalDamage);
+	
 	// 2. check monster dead
-
-	// if (monster.isDead())
-	// {
-	//  	return;  // if monster dead turn end
-	// }
+	if (monster.isDead())
+	{
+	 	return;  // if monster dead turn end
+	}
 
 	// 3. mosnter counterattack phase
 
-	// int monsterDamage = monster.useSkill();  // skill attempt
+	int monsterDamage = monster.useSkill();  // skill attempt
 
-	// if (monsterDamage == -1)                 // if skill failed
-	// {
-		// monsterDamage = monster.attack();    // replace to base attack
-	// }
+	if (monsterDamage == -1)                 // if skill failed
+	{
+		monsterDamage = monster.attack();    // replace to base attack
+	}
 
-	// player.takeDamage(monsterDamage);
-// }
+	player.TakeDamage(monsterDamage);
+}

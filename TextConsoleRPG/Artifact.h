@@ -1,13 +1,12 @@
 // Artifact.h
 
+#pragma once
 #include <string>
 
-#pragma once
+class Player;
 
-//class Artifact
-//{
-//public:
-	//Artifact(std::string ArtifactName);
-
-//};
-
+class Artifact
+{
+public:
+	void chooseAndApply(Player& player, std::string ArtifactName);
+};
