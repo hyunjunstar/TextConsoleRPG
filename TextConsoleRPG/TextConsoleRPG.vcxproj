@@ -25,6 +25,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Slime.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleManager.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Slime.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
