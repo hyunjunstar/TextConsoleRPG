@@ -4,10 +4,10 @@
 
 #pragma once
 
-class Artifact
-{
-public:
-	Artifact(std::string ArtifactName);
+//class Artifact
+//{
+//public:
+	//Artifact(std::string ArtifactName);
 
-};
+//};
 
