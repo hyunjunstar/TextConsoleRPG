@@ -70,7 +70,7 @@ int main() {
 
     
     cout << "\n--- Stage 1 Cleared! ---" << endl;
-    artifactSystem.chooseAndApply(myPlayer, "SlimeJuice");
+    // artifactSystem.chooseAndApply(myPlayer, "SlimeJuice");
     myPlayer.ShowStatus();
     NextStep("(Press Enter to proceed to the next stage...)");
 
@@ -96,7 +96,7 @@ int main() {
 
   
     cout << "\n--- Stage 2 Cleared! ---" << endl;
-    artifactSystem.chooseAndApply(myPlayer, "GoblinTotem");
+    // artifactSystem.chooseAndApply(myPlayer, "GoblinTotem");
     myPlayer.ShowStatus();
     NextStep("(Press Enter to enter the Boss Room...)");
 
@@ -123,7 +123,7 @@ int main() {
     }
 
     cout << "\n--- Boss Defeated! ---" << endl;
-    artifactSystem.chooseAndApply(myPlayer, "OrcHammer");
+    // artifactSystem.chooseAndApply(myPlayer, "OrcHammer");
     myPlayer.ShowStatus();
 
     NextStep("(Press Enter to see the ending...)");
