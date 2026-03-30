@@ -1,4 +1,4 @@
-// Monster.h
+// BasicMonster.h
 
 #pragma once
 #include <iostream>
