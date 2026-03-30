@@ -10,10 +10,12 @@ Player CreatePlayer() //Player class¿¡¼­ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
     Player p; //Player class·Î p ¶ó´Â Ä³¸¯ÅÍ¸¦ ¸¸µê
 
     std::cout << "Enter your name, adventurer: " << std::endl;
-    std::cin >> p.pname;
+    std::getline(std::cin, p.pname);//*3.30 ¼öÁ¤ ¶ç¾î¾²±â »ç¿ë°¡´É
     std::cout << "The journey of the great adventurer [" << p.pname << "] begins!\n" << std::endl;
-
-    p.HP = 100;
+    p.maxHP = 100;//3.30 Ãß°¡
+    p.HP = p.maxHP;//3.30 ¼öÁ¤
+    p.exp = 0;//3.30 Ãß°¡
+    p.level = 1;//3.30 Ãß°¡
     p.BaseAtk = std::rand() % 6 + 10;
     //¸¦ »ç¿ëÇÏ·Á´Âµ¥ ¾ÈµÇ¼­ ÀÏ´Ü 10À¸·Î °íÁ¤ÇÔ //ÇØ°áÇÔ
     //±âº»°ø°Ý·ÂÀº 10~15 ¹üÀ§¾È¿¡¼­ ·£´ýÀ¸·Î ¼³Á¤ÀÌ¶ó´Â ¶æ
@@ -35,7 +37,7 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Þ´Â Çàµ¿À» Á¤ÀÇÇ
 
     if (HP == 0) //HP°¡ 0ÀÏ¶§ »ç¸Á
     {
-        std::cout << pname << "has died...\nAnd so, the world ends...\n";
+        std::cout << pname << " has died...\nAnd so, the world ends...\n";
 
         return;
     }
@@ -44,16 +46,47 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Þ´Â Çàµ¿À» Á¤ÀÇÇ
 
 }
 
-
 // ³» »óÅÂ º¸±â
 void Player::ShowStatus() //Player class¿¡ ¼ÓÇÑ ³» »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
 {
     std::cout << "\n=================================\n";
     std::cout << "       [" << pname << "'s Status]      \n";
     std::cout << "===================================\n";
-    std::cout << "HP: " << HP << "\n";
+    std::cout << "Level: " << level << "\n";//*3.30 Ãß°¡
+    std::cout << "EXP: " << exp << "\n";//*3.30Ãß°¡
+    std::cout << "HP: " << HP << "/ " << maxHP << "\n";//*3.30 ¼öÁ¤ ÃÖ´ëÃÖ·Â°ú ÇöÀç Ã¼·Â º¸¿©ÁÜ
     std::cout << "ATK: " << BaseAtk << "\n";
     std::cout << " [Artifact] Crit Chance: " << CritChance << "%\n";
     std::cout << "[Artifact] DMG Multiplier: x" << DamageMultiplier << "\n";
     std::cout << "===================================\n" << std::endl;
+}
+
+void Player::GainExp(int amount)//°æÇèÄ¡ È¹µæ ÇÔ¼ö*3.30 Ãß°¡
+{
+    exp += amount;
+    std::cout << pname << " gained " << amount << " EXP!\n";
+
+    while (exp >= 100)//°æÇèÄ¡°¡ 100º¸´Ù Å©°Å³ª °°À¸¸é
+    {
+        exp -= 100;//°æÇèÄ¡¿¡¼­ 100À» »«ÈÄ
+        Levelup();// ·¹º§¾÷
+    }
+}
+
+void Player::Levelup()//·¹º§¾÷ ÇÔ¼ö *3.30 Ãß°¡
+{
+    if (level >= 10)
+    {
+        std::cout << "You have reached the maximum level!\n";
+        std::cout << "You're nothing to me." << std::endl;//µµÀü°úÁ¦ ¸ó½ºÅÍ º¸½ºÀü
+        return;
+    }
+    level++;
+    maxHP += 20;
+    HP = maxHP;// HP È¸º¹
+    BaseAtk += 5;
+
+    std::cout << "\n*** LEVEL UP! ***\n";
+    std::cout << pname << " reached Level " << level << "!\n";
+    std::cout << "Max HP 20 and ATK 5 increased.\n" << std::endl;
 }
