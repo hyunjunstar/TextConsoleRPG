@@ -1,6 +1,6 @@
 ﻿// MonsterFactory.cpp
 #include "MonsterFactory.h"
-// #include "BasicMonster.h"
+#include "BasicMonster.h"
 #include <cstdlib>
 
 std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
@@ -77,7 +77,57 @@ std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
             30, 8
         );
 
-            // 현재 총 5가지 몬스터 작성 완료(보스2, 일반3). 추후에 일반 5 추가 예정
+    case 3:
+        return std::make_unique<BasicMonster>
+            (
+            "Skeleton Knight",
+            static_cast<int>(100 * hpScale),
+            static_cast<int>(12 * atkScale),
+            "Rusty Blade", "Dark Rupture",
+            35, 10
+        );
+
+    case 4:
+        return std::make_unique<BasicMonster>
+            (
+            "Scorpion",
+            static_cast<int>(120 * hpScale),
+            static_cast<int>(15 * atkScale),
+            "Venom Sting", "Paralyzing Venom",
+            40, 12
+        );
+
+    case 5:
+        return std::make_unique<BasicMonster>
+            (
+            "Zombie",
+            static_cast<int>(140 * hpScale),
+            static_cast<int>(18 * atkScale),
+            "Rotten Claw", "Decaying Bite",
+            45, 15
+        );
+
+    case 6:
+        return std::make_unique<BasicMonster>
+            (
+            "Wolf",
+            static_cast<int>(160 * hpScale),
+            static_cast<int>(20 * atkScale),
+            "Savage Bite", "Frenzy Rush",
+            50, 18
+        );
+
+    case 7:
+        return std::make_unique<BasicMonster>
+            (
+            "Gargoyle",
+            static_cast<int>(180 * hpScale),
+            static_cast<int>(22 * atkScale),
+            "Stone Claw", "Petrify",
+            55, 20
+        );
+
+            // 현재 총 10가지 몬스터 작성 완료(보스2, 일반8).
 
     default:
         return std::make_unique<BasicMonster>
