@@ -24,6 +24,7 @@
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterFactory.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Slime.cpp" />
@@ -34,6 +35,7 @@
     <ClInclude Include="BattleManager.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterFactory.h" />
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Slime.h" />
