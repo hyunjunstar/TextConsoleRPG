@@ -3,7 +3,7 @@
 // #include "BasicMonster.h"
 #include <cstdlib>
 
-std::unique_ptr<Monster> MonsterFactory::createMonster(int stage) 
+std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
 {
 
     // stat scaling — higher stage = stronger monster
@@ -20,7 +20,7 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
     // === boss stages ===
     if (stage == 5) 
     {
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Orc Warlord",
             static_cast<int>(150 * hpScale),
@@ -32,7 +32,7 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
 
     if (stage == 10) 
     {
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Dragon Lord",
             static_cast<int>(300 * hpScale),
@@ -48,7 +48,7 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
     switch (roll) 
     {
     case 0:
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Slime",
             static_cast<int>(40 * hpScale),
@@ -58,21 +58,21 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
         );
 
     case 1:
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Goblin",
-            static_cast<int>(70 * hpScale),
-            static_cast<int>(8 * atkScale),
+            static_cast<int>(60 * hpScale),
+            static_cast<int>(7 * atkScale),
             "Quick Strike", "Stab Attack",
             25, 5
         );
 
     case 2:
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Orc",
-            static_cast<int>(100 * hpScale),
-            static_cast<int>(12 * atkScale),
+            static_cast<int>(80 * hpScale),
+            static_cast<int>(10 * atkScale),
             "Heavy Smash", "Power Ground Hit",
             30, 8
         );
@@ -80,7 +80,7 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
             // 현재 총 5가지 몬스터 작성 완료(보스2, 일반3). 추후에 일반 5 추가 예정
 
     default:
-        // return std::make_unique<BasicMonster>
+        return std::make_unique<BasicMonster>
             (
             "Slime",
             static_cast<int>(40 * hpScale),
@@ -89,6 +89,4 @@ std::unique_ptr<Monster> MonsterFactory::createMonster(int stage)
             20, 3
         );
     }
-
-    return nullptr;  // TODO: replace when BasicMonster is ready
 }

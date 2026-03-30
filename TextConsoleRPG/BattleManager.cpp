@@ -3,7 +3,7 @@
 #include "BattleManager.h"
 #include <iostream>
 
-void BattleManager::processTurn(Player& player, Monster& monster)
+void BattleManager::processTurn(Player& player, BasicMonster& monster)
 {
 	// 1. Player Attack Phase
 

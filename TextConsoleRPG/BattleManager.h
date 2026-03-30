@@ -2,7 +2,7 @@
 
 #pragma once
 #include "Player.h"
-#include "Monster.h"
+#include "BasicMonster.h"
 #include <cstdlib>
 
 class BattleManager
@@ -17,5 +17,5 @@ public:
 	~BattleManager() = default;
 
 	// 1 turn behavior 
-	void processTurn(Player& player, Monster& monster);
+	void processTurn(Player& player, BasicMonster& monster);
 };

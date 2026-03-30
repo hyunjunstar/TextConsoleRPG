@@ -6,11 +6,9 @@
 #include <string>
 
 #include "Player.h"
-#include "Monster.h"
-#include "Slime.h"
-#include "Goblin.h"
-#include "Orc.h"
+#include "BasicMonster.h"
 #include "BattleManager.h"
+#include "MonsterFactory.h"
 #include "Artifact.h"
 #include "UI.h"
 
@@ -50,81 +48,81 @@ int main() {
     NextStep("(Press Enter to start the adventure...)");
 
 
-    cout << "\n========================================" << endl;
-    ui.printSlime();
-    Slime slime;
+    // === 10 stage loop ===
+    for (int stage = 1; stage <= 10; stage++)
+    {
+        // create monster for this stage
+        auto monster = MonsterFactory::createMonster(stage);
 
-    while (myPlayer.HP > 0 && !slime.isDead()) {
-        ui.printAttack();
-        battle.processTurn(myPlayer, slime);
+        // stage announcement
+        cout << "\n========================================" << endl;
 
-        if (myPlayer.HP > 0 && !slime.isDead()) {
-            NextStep("(Press Enter to continue to the next turn...)");
+        if (stage == 5)
+        {
+            cout << "  [Stage " << stage << "] Mid-Boss appeared!" << endl;
+        }
+        else if (stage == 10)
+        {
+            cout << "  [Stage " << stage << "] Final Boss appeared!!" << endl;
+        }
+        else
+        {
+            cout << "  [Stage " << stage << "] A monster appeared!" << endl;
+        }
+
+        cout << "========================================" << endl;
+        monster->showStatus();
+
+        // battle loop
+        while (myPlayer.HP > 0 && !monster->isDead())
+        {
+            ui.printAttack();
+            battle.processTurn(myPlayer, *monster);
+
+            if (myPlayer.HP > 0 && !monster->isDead())
+            {
+                NextStep("(Press Enter to continue to the next turn...)");
+            }
+        }
+
+        // game over check
+        if (myPlayer.HP <= 0)
+        {
+            ui.printGameOver();
+            return 0;
+        }
+
+        // stage clear
+        cout << "\n--- Stage " << stage << " Cleared! ---" << endl;
+
+        // gain exp
+        myPlayer.GainExp(30 + stage * 10);
+
+        // artifact selection (not on final stage)
+        if (stage < 10)
+        {
+            artifactSystem.chooseAndApply(myPlayer, stage);
+        }
+
+        myPlayer.ShowStatus();
+
+        // next stage prompt
+        if (stage < 10)
+        {
+            if (stage == 4)
+            {
+                NextStep("(Press Enter to enter the Mid-Boss Room...)");
+            }
+            else if (stage == 9)
+            {
+                NextStep("(Press Enter to enter the Final Boss Room...)");
+            }
+            else
+            {
+                NextStep("(Press Enter to proceed to the next stage...)");
+            }
         }
     }
-
-    if (myPlayer.HP <= 0) {
-        ui.printGameOver();
-        return 0;
-    }
-
-    
-    cout << "\n--- Stage 1 Cleared! ---" << endl;
-    // artifactSystem.chooseAndApply(myPlayer, "SlimeJuice");
-    myPlayer.ShowStatus();
-    NextStep("(Press Enter to proceed to the next stage...)");
-
-
-
-    cout << "\n========================================" << endl;
-    ui.printGoblin();
-    Goblin goblin;
-
-    while (myPlayer.HP > 0 && !goblin.isDead()) {
-        ui.printAttack();
-        battle.processTurn(myPlayer, goblin);
-
-        if (myPlayer.HP > 0 && !goblin.isDead()) {
-            NextStep("(Press Enter to continue to the next turn...)");
-        }
-    }
-
-    if (myPlayer.HP <= 0) {
-        ui.printGameOver();
-        return 0;
-    }
-
-  
-    cout << "\n--- Stage 2 Cleared! ---" << endl;
-    // artifactSystem.chooseAndApply(myPlayer, "GoblinTotem");
-    myPlayer.ShowStatus();
-    NextStep("(Press Enter to enter the Boss Room...)");
-
-
-
-    cout << "\n========================================" << endl;
-    cout << "  [WARNING] Entering the Boss Room! " << endl;
-    cout << "========================================" << endl;
-    ui.printOrk();
-    Orc orc;
-
-    while (myPlayer.HP > 0 && !orc.isDead()) {
-        ui.printAttack();
-        battle.processTurn(myPlayer, orc);
-
-        if (myPlayer.HP > 0 && !orc.isDead()) {
-            NextStep("(Press Enter to continue to the next turn...)");
-        }
-    }
-
-    if (myPlayer.HP <= 0) {
-        ui.printGameOver();
-        return 0;
-    }
-
-    cout << "\n--- Boss Defeated! ---" << endl;
-    // artifactSystem.chooseAndApply(myPlayer, "OrcHammer");
-    myPlayer.ShowStatus();
 
     NextStep("(Press Enter to see the ending...)");
     ui.printGameClear();

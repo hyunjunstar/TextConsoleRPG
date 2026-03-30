@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Monster.h"
+#include "BasicMonster.h"
 #include <memory>
 
 // Factory pattern — creates monsters based on stage number
@@ -7,5 +7,5 @@
 
 class MonsterFactory {
 public:
-    static std::unique_ptr<Monster> createMonster(int stage);
+    static std::unique_ptr<BasicMonster> createMonster(int stage);
 };
