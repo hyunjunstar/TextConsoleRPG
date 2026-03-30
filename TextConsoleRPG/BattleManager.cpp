@@ -50,5 +50,14 @@ void BattleManager::processTurn(Player& player, Monster& monster)
 		monsterDamage = monster.attack();    // replace to base attack
 	}
 
-	player.TakeDamage(monsterDamage);
+	// apply damage variance to monster attack
+	int monsterVariance = monsterDamage / VARIANCE_DIVIDER;
+	int monsterFinal = monsterDamage + (std::rand() % (monsterVariance * 2 + 1)) - monsterVariance;
+
+	if (monsterFinal < 1)
+	{
+		monsterFinal = 1;
+	}
+
+	player.TakeDamage(monsterFinal);
 }

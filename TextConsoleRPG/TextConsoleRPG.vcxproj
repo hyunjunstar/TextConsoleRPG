@@ -23,7 +23,12 @@
     <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Main.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="BasicMonster.cpp" />
+=======
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterFactory.cpp" />
+>>>>>>> main
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Slime.cpp" />
@@ -33,7 +38,12 @@
     <ClInclude Include="Artifact.h" />
     <ClInclude Include="BattleManager.h" />
     <ClInclude Include="Goblin.h" />
+<<<<<<< HEAD
     <ClInclude Include="BasicMonster.h" />
+=======
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterFactory.h" />
+>>>>>>> main
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Slime.h" />
