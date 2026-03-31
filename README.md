@@ -183,7 +183,10 @@ C++로 개발하는 텍스트 기반 RPG 게임이다.
 
 ## 📷 실행 화면
 
-![gameplay](이미지링크)
+![Animation01](https://github.com/user-attachments/assets/f5719e4a-3e60-49eb-8cfd-f47afdf78f3e)
+![Animation02](https://github.com/user-attachments/assets/ffde1a68-adaa-4ccc-bef8-4c59d6606f73)
+
+
 
 ---
 
