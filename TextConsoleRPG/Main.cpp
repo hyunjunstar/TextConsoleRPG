@@ -19,7 +19,7 @@ const int COLOR_NORMAL = 0x07;  // 검은 바탕 + 기본 흰색 (평상시)
 const int COLOR_BOSS = 0x04;  // 검은 바탕 + 빨간색 (보스 경고, 사망)
 const int COLOR_REWARD = 0x0E;  // 검은 바탕 + 노란색 (보상, 렙업, 클리어)
 const int COLOR_SYSTEM = 0x0B;  // 검은 바탕 + 청록색 (시스템 메시지, 선택지)
-const int COLOR_SYSTEM2 = 0x0A;  // 검은 바탕 + 청록색 (시스템 메시지, 선택지)
+const int COLOR_SYSTEM2 = 0x0A;  // 검은 바탕 + 초록색 (인트로)
 
 void SetColor(int colorCode) 
 {
@@ -66,7 +66,7 @@ int main() {
 
     SetColor(COLOR_NORMAL);
     cout << "\n=============================================" << endl;
-    cout << "     23조 [박경호와 아이들]     " << endl;
+    cout << "     23조 [박경호의 아이들]     " << endl;
     cout << "=============================================\n" << endl;
 
 
