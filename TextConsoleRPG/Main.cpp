@@ -145,13 +145,6 @@ int main() {
                     cout << "\n [아이템] 포션을 사용했습니다! 체력을 50 회복했습니다." << endl;
                     SetColor(COLOR_NORMAL);
 
-                    SetColor(COLOR_BOSS);
-                    cout << "\n 몬스터가 공격합니다!" << endl;
-                    SetColor(COLOR_NORMAL);
-
-                    ui.printAttack();
-                    // 여기에 몬스터만 player 공격할 수 있게 코드 부탁드려요 ㅠㅠ
-
                 }
 
             }
