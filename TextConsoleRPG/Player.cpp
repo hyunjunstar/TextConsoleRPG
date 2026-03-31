@@ -3,15 +3,23 @@
 #include "Player.h"
 #include <cstdlib>
 #include <iostream>
+#include <windows.h>
+
+const int COLOR_NORMAL = 0x07;  
+const int COLOR_REWARD = 0x0E;  
+
+extern void SetColor(int colorCode);
 
 //Ä³¸¯ÅÍ »ý¼º
 Player CreatePlayer() //Player class¿¡¼­ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
 {
     Player p; //Player class·Î p ¶ó´Â Ä³¸¯ÅÍ¸¦ ¸¸µê
 
-    std::cout << "Enter your name, adventurer: " << std::endl;
+    std::cout << "\nÀ§´ëÇÑ ¸ðÇè°¡´ÔÀÇ ¼ºÇÔÀ» ¾Ë·ÁÁÖ¼¼¿ä: ";
     std::getline(std::cin, p.pname);//*3.30 ¼öÁ¤ ¶ç¾î¾²±â »ç¿ë°¡´É
-    std::cout << "The journey of the great adventurer [" << p.pname << "] begins!\n" << std::endl;
+    SetColor(COLOR_REWARD);
+    std::cout << "¸ðÇè°¡ [" << p.pname << "] ´ÔÀÇ À§´ëÇÑ ¿©Á¤ÀÌ ½ÃÀÛµË´Ï´Ù!\n" << std::endl;
+    SetColor(COLOR_NORMAL);
     p.maxHP = 100;//3.30 Ãß°¡
     p.HP = p.maxHP;//3.30 ¼öÁ¤
     p.exp = 0;//3.30 Ãß°¡
@@ -21,6 +29,7 @@ Player CreatePlayer() //Player class¿¡¼­ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
     //±âº»°ø°Ý·ÂÀº 10~15 ¹üÀ§¾È¿¡¼­ ·£´ýÀ¸·Î ¼³Á¤ÀÌ¶ó´Â ¶æ
     p.CritChance = 0;
     p.DamageMultiplier = 1.0f;
+    p.potion = 0;
 
     return p;
 }
@@ -37,12 +46,12 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Þ´Â Çàµ¿À» Á¤ÀÇÇ
 
     if (HP == 0) //HP°¡ 0ÀÏ¶§ »ç¸Á
     {
-        std::cout << pname << " has died...\nAnd so, the world ends...\n";
+        std::cout << pname << "\n´ÔÀÌ ¾²·¯Á³½À´Ï´Ù...\n±×·¸°Ô ¼¼»óÀº Á¾¸»À» ¸ÂÀÌÇß½À´Ï´Ù...\n";
 
         return;
     }
 
-    std::cout << pname << " took " << damage << " damage. (Current HP: " << HP << ")" << std::endl;
+    std::cout << pname << "´ÔÀÌ " << damage << "ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú½À´Ï´Ù. (ÇöÀç HP: " << HP << ")" << std::endl;
 
 }
 
@@ -50,21 +59,21 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Þ´Â Çàµ¿À» Á¤ÀÇÇ
 void Player::ShowStatus() //Player class¿¡ ¼ÓÇÑ ³» »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
 {
     std::cout << "\n=================================\n";
-    std::cout << "       [" << pname << "'s Status]      \n";
+    std::cout << "       [" << pname << "ÀÇ »óÅÂ]      \n";
     std::cout << "===================================\n";
     std::cout << "Level: " << level << "\n";//*3.30 Ãß°¡
     std::cout << "EXP: " << exp << "\n";//*3.30Ãß°¡
     std::cout << "HP: " << HP << "/ " << maxHP << "\n";//*3.30 ¼öÁ¤ ÃÖ´ëÃÖ·Â°ú ÇöÀç Ã¼·Â º¸¿©ÁÜ
-    std::cout << "ATK: " << BaseAtk << "\n";
-    std::cout << " [Artifact] Crit Chance: " << CritChance << "%\n";
-    std::cout << "[Artifact] DMG Multiplier: x" << DamageMultiplier << "\n";
+    std::cout << "°ø°Ý·Â: " << BaseAtk << "\n";
+    std::cout << "[À¯¹°] Ä¡¸íÅ¸ È®·ü: " << CritChance << "%\n";
+    std::cout << "[À¯¹°] µ¥¹ÌÁö ¹èÀ²: x" << DamageMultiplier << "\n";
     std::cout << "===================================\n" << std::endl;
 }
 
 void Player::GainExp(int amount)//°æÇèÄ¡ È¹µæ ÇÔ¼ö*3.30 Ãß°¡
 {
     exp += amount;
-    std::cout << pname << " gained " << amount << " EXP!\n";
+    std::cout << pname << "´ÔÀÌ " << amount << "ÀÇ °æÇèÄ¡¸¦ È¹µæÇß½À´Ï´Ù!\n";
 
     while (exp >= 100)//°æÇèÄ¡°¡ 100º¸´Ù Å©°Å³ª °°À¸¸é
     {
@@ -77,8 +86,8 @@ void Player::Levelup()//·¹º§¾÷ ÇÔ¼ö *3.30 Ãß°¡
 {
     if (level >= 10)
     {
-        std::cout << "You have reached the maximum level!\n";
-        std::cout << "You're nothing to me." << std::endl;//µµÀü°úÁ¦ ¸ó½ºÅÍ º¸½ºÀü
+        std::cout << "ÃÖ´ë ·¹º§¿¡ µµ´ÞÇß½À´Ï´Ù!\n";
+        std::cout << "ÀÌÁ¦ ´õ ÀÌ»ó ³»°Ô Àû¼ö´Â ¾ø´Ù!!" << std::endl;//µµÀü°úÁ¦ ¸ó½ºÅÍ º¸½ºÀü
         return;
     }
     level++;
@@ -86,7 +95,9 @@ void Player::Levelup()//·¹º§¾÷ ÇÔ¼ö *3.30 Ãß°¡
     HP = maxHP;// HP È¸º¹
     BaseAtk += 5;
 
+    SetColor(COLOR_REWARD);
     std::cout << "\n*** LEVEL UP! ***\n";
-    std::cout << pname << " reached Level " << level << "!\n";
-    std::cout << "Max HP 20 and ATK 5 increased.\n" << std::endl;
+    SetColor(COLOR_NORMAL);
+    std::cout << pname << "´ÔÀÌ ·¹º§ " << level << "À¸·Î ¿Ã¶ú½À´Ï´Ù!\n";
+    std::cout << "ÃÖ´ë Ã¼·ÂÀÌ 20, °ø°Ý·ÂÀÌ 5 Áõ°¡Çß½À´Ï´Ù.\n" << std::endl;
 }

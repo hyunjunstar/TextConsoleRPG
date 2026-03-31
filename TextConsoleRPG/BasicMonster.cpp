@@ -1,6 +1,13 @@
 // BasicMonster.cpp
 
 #include "BasicMonster.h"
+#include <windows.h>
+
+const int COLOR_NORMAL = 0x07;  // 검은 바탕 + 기본 흰색 (평상시)
+const int COLOR_REWARD = 0x0E;  // 검은 바탕 + 노란색 (보상, 렙업, 클리어)
+const int COLOR_BOSS = 0x04; // 검은 바탕 + 빨간색 (보스 경고, 사망)
+
+extern void SetColor(int colorCode);
 
 BasicMonster::BasicMonster(
     string mName,
@@ -27,12 +34,16 @@ void BasicMonster::showStatus() {
 }
 
 int BasicMonster::attack() {
-    cout << name << " Attack!" << endl;
+    SetColor(COLOR_BOSS);
+    cout << name << " 공격!" << endl;
+    SetColor(COLOR_NORMAL);
     return atk;
 }
 
 int BasicMonster::useSkill() {
-    cout << name << " Skill Attack!" << endl;
+    SetColor(COLOR_BOSS);
+    cout << name << " 스킬 어택!!" << endl;
+    SetColor(COLOR_NORMAL);
     return atk + skBonus;
 }
 
@@ -42,8 +53,8 @@ void BasicMonster::takeDamage(int damage) {
     if (hp < 0) {
         hp = 0;
     }
-    cout << "[" << name << "] "
-        << damage << " Take Damage (HP: "
+    cout << "[" << name << "] 님이"
+        << damage << " 의 데미지를 입었습니다. (HP: "
         << hp << ")" << endl;
 }
 

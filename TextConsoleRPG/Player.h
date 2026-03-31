@@ -13,6 +13,7 @@ public:
     int exp = 0;//경험치//*3.30추가
     int level = 1;//레벨(플레이어가 사용)//*3.30추가
     int maxHP = 0; // 플레이어 최대체력//*3.30추가
+    int potion = 0;
 
     float CritChance = 0.0f;//치명타확률//*3.30 수정 밑의 치명타 확률 설정 함수랑 통일하기위해 float로 변경
     float DamageMultiplier = 1.0f;//데미지 배율
