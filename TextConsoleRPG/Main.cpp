@@ -19,6 +19,7 @@ const int COLOR_NORMAL = 0x07;  // 검은 바탕 + 기본 흰색 (평상시)
 const int COLOR_BOSS = 0x04;  // 검은 바탕 + 빨간색 (보스 경고, 사망)
 const int COLOR_REWARD = 0x0E;  // 검은 바탕 + 노란색 (보상, 렙업, 클리어)
 const int COLOR_SYSTEM = 0x0B;  // 검은 바탕 + 청록색 (시스템 메시지, 선택지)
+const int COLOR_SYSTEM2 = 0x0A;  // 검은 바탕 + 청록색 (시스템 메시지, 선택지)
 
 void SetColor(int colorCode) 
 {
@@ -53,11 +54,21 @@ int main() {
     BattleManager battle;
     Artifact artifactSystem; 
 
-    SetColor(COLOR_NORMAL);
+    SetColor(COLOR_SYSTEM2);
+    cout << "세계관을 형성하는 중입니다..." << endl;
+    Sleep(800); 
+    cout << "보스 몬스터들을 던전에 배치하는 중입니다..." << endl;
+    Sleep(800);
+    cout << "전설의 유물들을 숨기는 중입니다..." << endl;
+    Sleep(800); 
+    cout << "\n박경호 튜터님의 진실의 방에 다녀오는 중입니다..." << endl;
+    Sleep(1200); // 1.2초 멈춤
 
-    cout << "=============================================" << endl;
-    cout << "  박경호와 아이들이 만든 Text Console RPG " << endl;
+    SetColor(COLOR_NORMAL);
+    cout << "\n=============================================" << endl;
+    cout << "     23조 [박경호와 아이들]     " << endl;
     cout << "=============================================\n" << endl;
+
 
     ui.printCharacter();
     Player myPlayer = CreatePlayer();
