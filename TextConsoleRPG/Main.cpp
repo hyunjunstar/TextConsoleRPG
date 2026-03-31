@@ -226,7 +226,7 @@ int main() {
 
     SetColor(COLOR_NORMAL);
     cout << "\n\n [만든 사람들]" << endl;
-    cout << "- 메인 디렉터 : 백록담 - " << endl;
+    cout << "- 메인 담당 : 백록담 - " << endl;
     cout << "- 플레이어 담당 : 김남윤 - " << endl;
     cout << "- 몬스터 담당 : 김현준 - " << endl;
     cout << "- 핵심 로직(전투 계산) 담당 : 조유현 - " << endl;
