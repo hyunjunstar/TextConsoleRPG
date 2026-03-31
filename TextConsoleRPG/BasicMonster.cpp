@@ -61,8 +61,8 @@ void BasicMonster::takeDamage(int damage) {
     if (hp < 0) {
         hp = 0;
     }
-    cout << "[" << name << "] 님이"
-        << damage << " 의 데미지를 입었습니다. (HP: "
+    cout << name << "이 "
+        << damage << "의 데미지를 입었습니다. (HP: "
         << hp << ")" << endl;
 }
 
