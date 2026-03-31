@@ -58,7 +58,7 @@ void Player::TakeDamage(int damage)//Player class¿¡ ¼ÓÇÑ µ¥¹ÌÁö¹Ş´Â Çàµ¿À» Á¤ÀÇÇ
 // ³» »óÅÂ º¸±â
 void Player::ShowStatus() //Player class¿¡ ¼ÓÇÑ ³» »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
 {
-    std::cout << "\n=================================\n";
+    std::cout << "\n===================================\n";
     std::cout << "       [" << pname << "ÀÇ »óÅÂ]      \n";
     std::cout << "===================================\n";
     std::cout << "Level: " << level << "\n";//*3.30 Ãß°¡
