@@ -22,10 +22,10 @@ std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
     {
         return std::make_unique<BasicMonster>
             (
-            "Orc Warlord",
+            "오크 워로드",
             static_cast<int>(150 * hpScale),
             static_cast<int>(12 * atkScale),
-            "Heavy Smash", "Power Ground Hit",
+            "헤비 스매시", "지면 파쇄",
             30, 8
         );
     }
@@ -34,10 +34,10 @@ std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
     {
         return std::make_unique<BasicMonster>
             (
-            "Dragon Lord",
+            "드래곤 로드",
             static_cast<int>(300 * hpScale),
             static_cast<int>(18 * atkScale),
-            "Fire Breath", "Inferno Blast",
+            "파이어 브레스", "지옥불 블래스트",
             40, 15
         );
     }
@@ -50,80 +50,80 @@ std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
     case 0:
         return std::make_unique<BasicMonster>
             (
-            "Slime",
+            "슬라임",
             static_cast<int>(40 * hpScale),
             static_cast<int>(5 * atkScale),
-            "Body Slam", "Spraying Mucus",
+            "몸통 박치기", "점액 뿌리기",
             20, 3
         );
 
     case 1:
         return std::make_unique<BasicMonster>
             (
-            "Goblin",
+            "고블린",
             static_cast<int>(60 * hpScale),
             static_cast<int>(7 * atkScale),
-            "Quick Strike", "Stab Attack",
+            "속공", "독 찌르기",
             25, 5
         );
 
     case 2:
         return std::make_unique<BasicMonster>
             (
-            "Orc",
+            "오크",
             static_cast<int>(80 * hpScale),
             static_cast<int>(10 * atkScale),
-            "Heavy Smash", "Power Ground Hit",
+            "헤비 스매시", "지면 파쇄",
             30, 8
         );
 
     case 3:
         return std::make_unique<BasicMonster>
             (
-            "Skeleton Knight",
+            "스켈레톤 나이트",
             static_cast<int>(100 * hpScale),
             static_cast<int>(12 * atkScale),
-            "Rusty Blade", "Dark Rupture",
+            "부식의 칼날", "암흑 파열",
             35, 10
         );
 
     case 4:
         return std::make_unique<BasicMonster>
             (
-            "Scorpion",
+            "스콜피온",
             static_cast<int>(120 * hpScale),
             static_cast<int>(15 * atkScale),
-            "Venom Sting", "Paralyzing Venom",
+            "맹독 침", "마비 독",
             40, 12
         );
 
     case 5:
         return std::make_unique<BasicMonster>
             (
-            "Zombie",
+            "좀비",
             static_cast<int>(140 * hpScale),
             static_cast<int>(18 * atkScale),
-            "Rotten Claw", "Decaying Bite",
+            "썩은 발톱", "부패한 물어뜯기",
             45, 15
         );
 
     case 6:
         return std::make_unique<BasicMonster>
             (
-            "Wolf",
+            "늑대",
             static_cast<int>(160 * hpScale),
             static_cast<int>(20 * atkScale),
-            "Savage Bite", "Frenzy Rush",
+            "광란 돌진", "포식자의 송곳니",
             50, 18
         );
 
     case 7:
         return std::make_unique<BasicMonster>
             (
-            "Gargoyle",
+            "가고일",
             static_cast<int>(180 * hpScale),
             static_cast<int>(22 * atkScale),
-            "Stone Claw", "Petrify",
+            "돌 발톱", "석화",
             55, 20
         );
 
@@ -132,10 +132,10 @@ std::unique_ptr<BasicMonster> MonsterFactory::createMonster(int stage)
     default:
         return std::make_unique<BasicMonster>
             (
-            "Slime",
+            "슬라임",
             static_cast<int>(40 * hpScale),
             static_cast<int>(5 * atkScale),
-            "Body Slam", "Spraying Mucus",
+            "몸통 박치기", "점액 뿌리기",
             20, 3
         );
     }

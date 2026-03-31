@@ -35,14 +35,22 @@ void BasicMonster::showStatus() {
 
 int BasicMonster::attack() {
     SetColor(COLOR_BOSS);
-    cout << name << " 공격!" << endl;
+    cout << name << "의 " << atkName << "!" << endl;
     SetColor(COLOR_NORMAL);
     return atk;
 }
 
 int BasicMonster::useSkill() {
+
+    int randValue = rand() % 100;
+
+    if (randValue >= skChance)
+    {
+        return -1;
+    }
+
     SetColor(COLOR_BOSS);
-    cout << name << " 스킬 어택!!" << endl;
+    cout << name << "의 스킬 발동 " << skName << "!!" << endl;
     SetColor(COLOR_NORMAL);
     return atk + skBonus;
 }
