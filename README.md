@@ -198,4 +198,7 @@ C++로 개발하는 텍스트 기반 RPG 게임이다.
 - 엘리트 몬스터 및 다수 몬스터 등장 시스템 추가  
 - 상점 및 장비 시스템 구현  
 - 세이브 / 로드 기능 추가  
-- 사운드 효과 적용  
+- 사운드 효과 적용
+
+### 게임 기획 문서
+https://docs.google.com/document/d/1K4f-s8CZh7K5AU2NU1ndRhZl4QN5Kfs3/edit
