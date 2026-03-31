@@ -5,44 +5,44 @@
 Artifact::Artifact() {
     // === tier 1 — common ===
     // 초반 유물, 상대적으로 적은 보너스
-    artifactPool.push_back({ "Slime Juice",     "+3 ATK",      3,  1.0f, 0.0f,  1 });
-    artifactPool.push_back({ "Leather Gloves",  "+5 ATK",      5,  1.0f, 0.0f,  1 });
-    artifactPool.push_back({ "Lucky Coin",      "+10% Crit",   0,  1.0f, 10.0f, 1 });
-    artifactPool.push_back({ "Iron Ring",       "+4 ATK",      4,  1.0f, 0.0f,  1 });
-    artifactPool.push_back({ "Dream Catcher",   "x1.2 DMG",    0,  1.1f, 0.0f,  1 });
-    artifactPool.push_back({ "Pocket Watch",    "+8% Crit",    0,  1.0f, 8.0f,  1 });
-    artifactPool.push_back({ "Ivory Ocarina",   "x1.1 DMG",    0,  1.1f, 0.0f,  1 });
-    artifactPool.push_back({ "Silver Bootstrap","+9% Crit",    0,  1.0f, 9.0f,  1 });
-    artifactPool.push_back({ "Choco Pie",       "+1 ATK",      1,  1.0f, 0.0f,  1 });
-    artifactPool.push_back({ "Tamagochi",       "+3% Crit",    0,  1.0f, 3.0f,  1 });
+    artifactPool.push_back({ "슬라임 주스",     "공격력 +3",             3,  1.0f, 0.0f,  1 });
+    artifactPool.push_back({ "가죽 장갑",       "공격력 +5",             5,  1.0f, 0.0f,  1 });
+    artifactPool.push_back({ "행운의 동전",     "크리티컬 확률 +10%",     0,  1.0f, 10.0f, 1 });
+    artifactPool.push_back({ "철제 반지",       "공격력 +4",             4,  1.0f, 0.0f,  1 });
+    artifactPool.push_back({ "드림 캐쳐",       "최종 데미지 x1.2",       0,  1.1f, 0.0f,  1 });
+    artifactPool.push_back({ "손목시계",        "크리티컬 확률 +8%",      0,  1.0f, 8.0f,  1 });
+    artifactPool.push_back({ "상아 오카리나",   "최종 데미지 x1.1",       0,  1.1f, 0.0f,  1 });
+    artifactPool.push_back({ "은장식 장화고리", "크리티컬 확률 +9%",      0,  1.0f, 9.0f,  1 });
+    artifactPool.push_back({ "초코파이",        "공격력 +1",             1,  1.0f, 0.0f,  1 });
+    artifactPool.push_back({ "다마고치",        "크리티컬 확률 +3%",      0,  1.0f, 3.0f,  1 });
 
 
     // === tier 2 — rare ===
     // 중반 유물, 초반 보다 큰 보너스
-    artifactPool.push_back({ "Goblin Totem",    "+15% Crit",   0,  1.0f, 15.0f, 2 });
-    artifactPool.push_back({ "War Drum",        "+8 ATK",      8,  1.0f, 0.0f,  2 });
-    artifactPool.push_back({ "Shadow Cloak",    "+20% Crit",   0,  1.0f, 20.0f, 2 });
-    artifactPool.push_back({ "Battle Horn",     "x1.3 DMG",    0,  1.3f, 0.0f,  2 });
-    artifactPool.push_back({ "Sacred Chain",    "+18% Crit",   0,  1.0f, 18.0f, 2 });
-    artifactPool.push_back({ "Vision Bracelet", "+9 ATK",      9,  1.0f, 0.0f,  2 });
-    artifactPool.push_back({ "Magma Grenade",   "+10 ATK",     10, 1.0f, 0.0f,  2 });
-    artifactPool.push_back({ "Blood Chalice",   "x1.4 DMG",    0,  1.4f, 0.0f,  2 });
-    artifactPool.push_back({ "Tiger Mask",      "+7 ATK",      7,  1.0f, 0.0f,  2 });
-    artifactPool.push_back({ "50y Whiskey",     "+18% Crit",   0,  1.0f, 18.0f, 2 });
+    artifactPool.push_back({ "고블린 주물",     "크리티컬 확률 +15%",     0,  1.0f, 15.0f, 2 });
+    artifactPool.push_back({ "군악대 북",       "공격력 +8",             8,  1.0f, 0.0f,  2 });
+    artifactPool.push_back({ "투명 망토",       "크리티컬 확률 +20%",     0,  1.0f, 20.0f, 2 });
+    artifactPool.push_back({ "결투의 나팔",     "최종 데미지 x1.3",       0,  1.3f, 0.0f,  2 });
+    artifactPool.push_back({ "신성한 사슬",     "크리티컬 확률 +18%",     0,  1.0f, 18.0f, 2 });
+    artifactPool.push_back({ "비전 팔찌",       "공격력 +9",             9,  1.0f, 0.0f,  2 });
+    artifactPool.push_back({ "마그마 화염공",   "공격력 +10",            10, 1.0f, 0.0f,  2 });
+    artifactPool.push_back({ "피의 성배",       "최종 데미지 x1.4",       0,  1.4f, 0.0f,  2 });
+    artifactPool.push_back({ "타이거 마스크",   "공격력 +7",              7,  1.0f, 0.0f,  2 });
+    artifactPool.push_back({ "50년 된 위스키",  "크리티컬 확률 +18%",      0,  1.0f, 18.0f, 2 });
 
 
     // === tier 3 — legendary ===
     // 후반 유물, 큰 보너스
-    artifactPool.push_back({ "Orc Hammer",      "x1.8 DMG",                   0,  1.8f, 0.0f,  3 });
-    artifactPool.push_back({ "Dragon Fang",     "+18 ATK +10% Crit",          18, 1.0f, 10.0f, 3 });
-    artifactPool.push_back({ "Phoenix Feather", "+5 ATK x1.5 DMG",            5,  1.5f, 0.0f,  3 });
-    artifactPool.push_back({ "Titan Gauntlet",  "+15 ATK x1.3 DMG",           15, 1.3f, 0.0f,  3 });
-    artifactPool.push_back({ "Mythrill Coat",   "x1.4 DMG +15% Crit",         0,  1.4f, 15.0f, 3 });
-    artifactPool.push_back({ "Kraken Harpoon",  "+35 ATK",                    35, 1.0f, 0.0f,  3 });
-    artifactPool.push_back({ "Sorcerer's Book", "x1.2 DMG +30% Crit",         0,  1.2f, 30.0f, 3 });
-    artifactPool.push_back({ "Guardian Angel",  "+10 ATK x1.3 DMG +10% Crit", 10, 1.3f, 10.0f, 3 });
-    artifactPool.push_back({ "Kryptonite",      "+55% Crit",                  0,  1.0f, 55.0f, 3 });
-    artifactPool.push_back({ "Sailor's Fruit",  "YOU GOT A HIDDEN STAT",      25, 2.5f, 25.0f, 3 });
+    artifactPool.push_back({ "오크의 철퇴",      "최종 데미지 x1.8",                               0,  1.8f, 0.0f,  3 });
+    artifactPool.push_back({ "용의 이빨",        "공격력 +18 크리티컬 확률 +10%",                  18, 1.0f, 10.0f, 3 });
+    artifactPool.push_back({ "불사조의 깃털",    "공격력 +5 최종 데미지 x1.5",                      5,  1.5f, 0.0f,  3 });
+    artifactPool.push_back({ "타이탄 건틀릿",    "공격력 +15 최종 데미지 x1.3",                    15, 1.3f, 0.0f,  3 });
+    artifactPool.push_back({ "미스릴 갑옷",      "최종 데미지 x1.4 크리티컬 확률 +15%",              0,  1.4f, 15.0f, 3 });
+    artifactPool.push_back({ "크라켄잡이 작살",  "공격력 +35",                                    35, 1.0f, 0.0f,  3 });
+    artifactPool.push_back({ "강령술사의 책",    "최종 데미지 x1.2 크리티컬 확률 +30%",              0,  1.2f, 30.0f, 3 });
+    artifactPool.push_back({ "수호천사",         "공격력 +10 최종 데미지 x1.3 크리티컬 확률 +10%",  10, 1.3f, 10.0f, 3 });
+    artifactPool.push_back({ "크립토나이트",     "크리티컬 확률 +55%",                              0,  1.0f, 55.0f, 3 });
+    artifactPool.push_back({ "악마의 열매",      "숨겨진 능력을 얻었습니다",                        25, 2.5f, 25.0f, 3 });
 }
 
 std::vector<int> Artifact::getRandomChoices(int stage)
